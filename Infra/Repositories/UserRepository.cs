@@ -10,9 +10,9 @@ namespace Infra.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly PostgresDbContext _dbContext;
-        public UserRepository(PostgresDbContext mongoDbContext)
+        public UserRepository(PostgresDbContext dbContext)
         {
-            _dbContext = mongoDbContext;
+            _dbContext = dbContext;
         }
         public async Task<User?> GetAsync(int userId)
         {
@@ -58,24 +58,25 @@ namespace Infra.Repositories
 
         public async Task<User> GetSignin(string email)
         {
-            var userInDb = await _dbContext.Users
+            var userInDb = new User();
+            try
+            {
+                userInDb = await _dbContext.Users
                 .Where(u => u.Email.ToLower() == email.ToLower())
                 .FirstOrDefaultAsync();
 
-            if (userInDb == null)
-                throw new Exception("Não existe usuário com estas credenciais.");
+                if (userInDb == null)
+                    throw new Exception("Não existe usuário com estas credenciais.");
+            }
+            catch(Exception ex)
+            {
 
+            }
             return userInDb;
         }
 
         public async Task<string> Signout(SignoutUserDTO signoutUserDTO)
         {
-
-
-
-
-
-
             return "";
         }
     }

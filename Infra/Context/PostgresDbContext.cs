@@ -8,7 +8,6 @@ namespace Authenticator.Context
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Status> Statuses { get; set; }
-
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Municipio> Municipios { get; set; }
         public DbSet<Estado> Estados { get; set; }
@@ -28,14 +27,14 @@ namespace Authenticator.Context
             modelBuilder.ApplyConfiguration(new EstadoConfiguration());
             modelBuilder.ApplyConfiguration(new RegiaoConfiguration());
         }
-        public override int SaveChanges()
-        {
-            return base.SaveChanges();
-        }
+        //public override int SaveChanges()
+        //{
+        //    return base.SaveChanges();
+        //}
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            return base.SaveChangesAsync(cancellationToken);
-        }
+        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        //{
+        //    return base.SaveChangesAsync(cancellationToken);
+        //}
     }
 }

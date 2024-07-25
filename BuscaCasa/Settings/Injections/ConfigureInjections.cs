@@ -26,10 +26,13 @@ namespace Authenticator.Configurations.Injections
             });
         }
 
-
         private static void ConfigureRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddScoped<IMunicipioRepository, MunicipioRepository>();
+            services.AddScoped<IEstadoRepository, EstadoRepository>();
+            services.AddScoped<IRegiaoRepository, RegiaoRepository>();
         }
 
         private static void ConfigureServices(IServiceCollection services)
@@ -49,6 +52,10 @@ namespace Authenticator.Configurations.Injections
         {
             services.AddScoped<PostgresDbContext>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEnderecoService, EnderecoService>();
+            services.AddScoped<IMunicipioService, MunicipioService>();
+            services.AddScoped<IEstadoService, EstadoService>();
+            services.AddScoped<IRegiaoService, RegiaoService>();
         }
 
         private static void ConfigureControllers(IServiceCollection services)
