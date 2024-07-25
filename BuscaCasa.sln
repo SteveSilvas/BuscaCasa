@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuscaCasa", "BuscaCasa\BuscaCasa.csproj", "{581B9014-F0A6-48E6-8733-9EBEC68E0D93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{4AA4A184-6350-400E-9D7E-66B87D16F2DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{6589532A-F16C-4898-9FF7-0B4E4326B17C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{581B9014-F0A6-48E6-8733-9EBEC68E0D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{581B9014-F0A6-48E6-8733-9EBEC68E0D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{581B9014-F0A6-48E6-8733-9EBEC68E0D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{581B9014-F0A6-48E6-8733-9EBEC68E0D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA4A184-6350-400E-9D7E-66B87D16F2DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA4A184-6350-400E-9D7E-66B87D16F2DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA4A184-6350-400E-9D7E-66B87D16F2DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA4A184-6350-400E-9D7E-66B87D16F2DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6589532A-F16C-4898-9FF7-0B4E4326B17C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6589532A-F16C-4898-9FF7-0B4E4326B17C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6589532A-F16C-4898-9FF7-0B4E4326B17C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6589532A-F16C-4898-9FF7-0B4E4326B17C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BE68AB9-B4BB-4354-8EFA-E1FD34CAD379}
+	EndGlobalSection
+EndGlobal
