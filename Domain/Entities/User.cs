@@ -12,5 +12,7 @@
         public DateTime UpdatedAt { get; set; }
         public int StatusId { get; set; }
         public Status? Status { get; set; }
+        public int TipoUsuarioID { get; set; }
+        public TipoUsuario? TipoUsuario { get; set; }
     }
 }

@@ -56,6 +56,18 @@ namespace Infra.DbConfigurations
                 .HasConstraintName("User_status_fkey")
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
+
+            builder.Property(e => e.TipoUsuarioID)
+           .HasColumnName("tipo_usuario")
+           .HasColumnType("integer")
+           .IsRequired();
+
+            builder.HasOne(e => e.TipoUsuario)
+                .WithMany() // Aqui você pode especificar o nome da propriedade na classe Status se houver (ex: .WithMany(s => s.Tipos))
+                .HasForeignKey(e => e.StatusId)
+                .HasConstraintName("User_type_fkey")
+                .OnDelete(DeleteBehavior.Restrict)
+                .IsRequired();
         }
     }
 }

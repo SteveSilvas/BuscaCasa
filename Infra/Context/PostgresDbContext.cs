@@ -1,6 +1,6 @@
-﻿using Infra.DbConfigurations;
+﻿using Domain.Entities;
+using Infra.DbConfigurations;
 using Microsoft.EntityFrameworkCore;
-using Domain.Entities;
 
 namespace Authenticator.Context
 {
@@ -12,6 +12,7 @@ namespace Authenticator.Context
         public DbSet<Municipio> Municipios { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Regiao> Regioes { get; set; }
+        public DbSet<TipoUsuario> TiposUsuarios { get; set; }
 
         public PostgresDbContext(DbContextOptions<PostgresDbContext> options) : base(options)
         {
@@ -19,6 +20,7 @@ namespace Authenticator.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new TipoUsuarioConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new StatusConfiguration());
 
@@ -26,6 +28,7 @@ namespace Authenticator.Context
             modelBuilder.ApplyConfiguration(new MunicipioConfiguration());
             modelBuilder.ApplyConfiguration(new EstadoConfiguration());
             modelBuilder.ApplyConfiguration(new RegiaoConfiguration());
+
         }
         //public override int SaveChanges()
         //{
