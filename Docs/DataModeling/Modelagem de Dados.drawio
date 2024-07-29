@@ -903,6 +903,9 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="6d5Y4t7GeTG4zkvUy6Gb-235" value="&lt;span data-lucid-content=&quot;{&amp;quot;t&amp;quot;:&amp;quot;Cliente,\nAdministrador,\ngerente,\nproprietario&amp;quot;,&amp;quot;m&amp;quot;:[{&amp;quot;s&amp;quot;:0,&amp;quot;n&amp;quot;:&amp;quot;s&amp;quot;,&amp;quot;v&amp;quot;:22.22222222222222,&amp;quot;e&amp;quot;:45},{&amp;quot;s&amp;quot;:0,&amp;quot;n&amp;quot;:&amp;quot;fsp&amp;quot;,&amp;quot;v&amp;quot;:&amp;quot;ss_presetShapeStyle1_textStyle&amp;quot;,&amp;quot;e&amp;quot;:45},{&amp;quot;s&amp;quot;:0,&amp;quot;n&amp;quot;:&amp;quot;fsp2&amp;quot;,&amp;quot;v&amp;quot;:&amp;quot;ss_presetShapeStyle1_textStyle&amp;quot;,&amp;quot;e&amp;quot;:45}]}&quot; data-lucid-type=&quot;application/vnd.lucid.text&quot;&gt;&lt;span style=&quot;font-size: 16.6667px;&quot;&gt;Cliente,&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 16.6667px;&quot;&gt;Administrador,&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 16.6667px;&quot;&gt;gerente,&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 16.6667px;&quot;&gt;proprietario&lt;/span&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="-440" width="110" height="90" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
