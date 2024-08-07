@@ -2,8 +2,8 @@
 {
     public class TipoUsuario
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Descricao { get; set; } = string.Empty;
-        public ICollection<User>? Usuarios { get; set; }
+        public ICollection<Usuario>? Usuarios { get; set; }
     }
 }

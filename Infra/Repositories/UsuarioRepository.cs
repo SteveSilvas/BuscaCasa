@@ -7,48 +7,46 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly PostgresDbContext _dbContext;
-        public UserRepository(PostgresDbContext dbContext)
+        public UsuarioRepository(PostgresDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public async Task<User?> GetAsync(int userId)
+        public async Task<Usuario?> GetAsync(long userId)
         {
             try
             {
-                return await _dbContext.Users
-             .Where(u => u.Id == userId)
+                return await _dbContext.Usuarios
+             .Where(u => u.ID == userId)
              .FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
                 throw new Exception("Não foi possível conectar à base de dados. {0}", ex);
             }
-
         }
 
-        public async Task<int> Signup(SignupUserDTO signupUserDTO)
+        public async Task<long> Signup(SignupUserDTO signupUserDTO)
         {
             try
             {
-
-                User user = new User
+                Usuario user = new Usuario
                 {
-                    Name = signupUserDTO.Name,
+                    Nome = signupUserDTO.Nome,
                     Email = signupUserDTO.Email,
                     PasswordHash = new byte[0],
                     PasswordSalt = new byte[0],
                     CreatedAt = DateTime.Now,
-                    StatusId = (int)StatusEnum.Active
+                    StatusId = (int)StatusUsuarioEnum.Ativo
                 };
 
-                _dbContext.Users.Add(user);
+                _dbContext.Usuarios.Add(user);
 
                 await _dbContext.SaveChangesAsync();
 
-                return user.Id;
+                return user.ID;
             }
             catch (Exception ex)
             {
@@ -56,19 +54,19 @@ namespace Infra.Repositories
             }
         }
 
-        public async Task<User> GetSignin(string email)
+        public async Task<Usuario> GetSignin(string email)
         {
-            var userInDb = new User();
+            var userInDb = new Usuario();
             try
             {
-                userInDb = await _dbContext.Users
+                userInDb = await _dbContext.Usuarios
                 .Where(u => u.Email.ToLower() == email.ToLower())
                 .FirstOrDefaultAsync();
 
                 if (userInDb == null)
                     throw new Exception("Não existe usuário com estas credenciais.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }

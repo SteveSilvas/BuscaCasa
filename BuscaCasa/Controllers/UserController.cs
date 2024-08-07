@@ -19,7 +19,7 @@ namespace Authenticator.Controllers
         }
 
         [HttpGet("{userId}", Name = "GetUserById")]
-        public async Task<ActionResult<User?>> GetUserAsync(int userId)
+        public async Task<ActionResult<Usuario?>> GetUserAsync(int userId)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace Authenticator.Controllers
         }
 
         [HttpPost("Signup")]
-        public async Task<ActionResult<User?>> Signup([FromBody] SignupUserDTO userDto)
+        public async Task<ActionResult<Usuario?>> Signup([FromBody] SignupUserDTO userDto)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Authenticator.Controllers
         }
 
         [HttpPost("Signin")]
-        public async Task<ActionResult<User?>> Signin([FromBody] SigninUserDTO userDto)
+        public async Task<ActionResult<Usuario?>> Signin([FromBody] SigninUserDTO userDto)
         {
             try
             {

@@ -4,19 +4,19 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infra.DbConfigurations
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.ToTable("User");
+            builder.ToTable("Usuario");
 
-            builder.HasKey(a => a.Id);
+            builder.HasKey(a => a.ID);
 
-            builder.Property(e => e.Id)
+            builder.Property(e => e.ID)
                 .HasColumnName("id");
 
-            builder.Property(e => e.Name)
-                .HasColumnName("name")
+            builder.Property(e => e.Nome)
+                .HasColumnName("nome")
                 .HasColumnType("varchar(255)")
                 .IsRequired();
 
@@ -51,20 +51,20 @@ namespace Infra.DbConfigurations
                 .IsRequired();
 
             builder.HasOne(e => e.Status)
-                .WithMany() // Aqui você pode especificar o nome da propriedade na classe Status se houver (ex: .WithMany(s => s.Users))
+                .WithMany()
                 .HasForeignKey(e => e.StatusId)
                 .HasConstraintName("User_status_fkey")
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 
             builder.Property(e => e.TipoUsuarioID)
-           .HasColumnName("tipo_usuario")
-           .HasColumnType("integer")
-           .IsRequired();
+               .HasColumnName("tipo_usuario")
+               .HasColumnType("integer")
+               .IsRequired();
 
             builder.HasOne(e => e.TipoUsuario)
-                .WithMany() // Aqui você pode especificar o nome da propriedade na classe Status se houver (ex: .WithMany(s => s.Tipos))
-                .HasForeignKey(e => e.StatusId)
+                .WithMany()
+                .HasForeignKey(e => e.TipoUsuarioID)
                 .HasConstraintName("User_type_fkey")
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();

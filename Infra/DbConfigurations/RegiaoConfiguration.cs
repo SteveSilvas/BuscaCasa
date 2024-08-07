@@ -10,9 +10,9 @@ namespace Infra.DbConfigurations
         {
             builder.ToTable("Regiao");
 
-            builder.HasKey(r => r.Id);
+            builder.HasKey(r => r.ID);
 
-            builder.Property(r => r.Id)
+            builder.Property(r => r.ID)
                 .HasColumnName("id");
 
             builder.Property(r => r.Sigla)

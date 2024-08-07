@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infra.DbConfigurations
 {
-    public class StatusConfiguration : IEntityTypeConfiguration<Status>
+    public class StatusUsuarioConfiguration : IEntityTypeConfiguration<StatusUsuario>
     {
-        public void Configure(EntityTypeBuilder<Status> builder)
+        public void Configure(EntityTypeBuilder<StatusUsuario> builder)
         {
-            builder.ToTable("Status");
+            builder.ToTable("Status_Usuario");
 
-            builder.HasKey(s => s.Id);
+            builder.HasKey(s => s.ID);
 
-            builder.Property(s => s.Id)
+            builder.Property(s => s.ID)
                 .HasColumnName("id");
 
             builder.Property(s => s.Descricao)

@@ -8,14 +8,14 @@ namespace Domain.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUsuarioRepository _userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUsuarioRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
-        public async Task<User?> GetById(int userId)
+        public async Task<Usuario?> GetById(long userId)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace Domain.Services
             }
         }
 
-        public async Task<int> Signup(SignupUserDTO signupUserDTO)
+        public async Task<long> Signup(SignupUserDTO signupUserDTO)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Domain.Services
         {
             try
             {
-                User user = await _userRepository.GetSignin(signinUserDTO.Email);
+                Usuario user = await _userRepository.GetSignin(signinUserDTO.Email);
 
                 if (user == null)
                     throw new FileNotFoundException("User not found.");

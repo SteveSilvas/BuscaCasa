@@ -10,9 +10,9 @@ namespace Infra.DbConfigurations
         {
             builder.ToTable("Endereco");
 
-            builder.HasKey(e => e.Id);
+            builder.HasKey(e => e.ID);
 
-            builder.Property(e => e.Id)
+            builder.Property(e => e.ID)
                 .HasColumnName("id");
 
             builder.Property(e => e.Rua)
@@ -43,6 +43,12 @@ namespace Infra.DbConfigurations
                 .WithMany(m => m.Enderecos)
                 .HasForeignKey(e => e.MunicipioId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(e => e.Imobiliarias)
+              .WithOne(i => i.Endereco)
+              .HasForeignKey(i => i.EnderecoID)
+              .HasConstraintName("Endereco_Imobiliaria_fkey")
+              .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

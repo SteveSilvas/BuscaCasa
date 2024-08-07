@@ -5,8 +5,8 @@ namespace Domain.Interfaces.IServices
 {
     public interface IUserService
     {
-        Task<User?> GetById(int userId);
-        Task<int> Signup(SignupUserDTO signupUserDTO);
+        Task<Usuario?> GetById(long userId);
+        Task<long> Signup(SignupUserDTO signupUserDTO);
         Task<string> Signin(SigninUserDTO signinUserDTO);
     }
 }
