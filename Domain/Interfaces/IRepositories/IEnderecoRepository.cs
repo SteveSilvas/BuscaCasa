@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
 
 namespace Domain.Interfaces.IRepositories
 {
     public interface IEnderecoRepository
     {
-        Task<List<Endereco>> FindAll();
+        Task<List<EnderecoDTO>> FindAll();
     }
 }

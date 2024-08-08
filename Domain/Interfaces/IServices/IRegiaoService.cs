@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
 
 namespace Domain.Interfaces.IServices
 {
     public interface IRegiaoService
     {
-        Task<List<Regiao>> FindAll();
+        Task<List<RegiaoDTO>> FindAll();
     }
 }

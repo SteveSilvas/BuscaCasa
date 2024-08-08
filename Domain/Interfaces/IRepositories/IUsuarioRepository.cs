@@ -5,10 +5,10 @@ namespace Domain.Interfaces.IRepositories
 {
     public interface IUsuarioRepository
     {
-        Task<Usuario?> GetAsync(long userId);
+        Task<UsuarioDTO?> GetAsync(long userId);
         Task<long> Signup(SignupUserDTO signupUserDTO);
 
-        Task<Usuario> GetSignin(string email);
+        Task<UsuarioDTO> GetSignin(string email);
 
         Task<string> Signout(SignoutUserDTO signoutUserDTO);
     }

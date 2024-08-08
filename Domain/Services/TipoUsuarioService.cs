@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
+using Domain.Entities;
 using Domain.Interfaces.IRepositories;
 using Domain.Interfaces.IServices;
 
@@ -6,18 +7,18 @@ namespace Domain.Services
 {
     public class TipoUsuarioService : ITipoUsuarioService
     {
-        private readonly ITipoUsuarioRepository _tipoUsuarioRepository;
+        private readonly ITipoUsuarioRepository _repository;
 
-        public TipoUsuarioService(ITipoUsuarioRepository tipoUsuarioRepository)
+        public TipoUsuarioService(ITipoUsuarioRepository repository)
         {
-            _tipoUsuarioRepository = tipoUsuarioRepository;
+            _repository = repository;
         }
 
-        public async Task<List<TipoUsuario>> FindAll()
+        public async Task<List<TipoUsuarioDTO>> FindAll()
         {
             try
             {
-                return await _tipoUsuarioRepository.FindAll();
+                return await _repository.FindAll();
             }
             catch (Exception ex)
             {

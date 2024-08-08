@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
+using Domain.Entities;
 using Domain.Interfaces.IRepositories;
 using Domain.Interfaces.IServices;
 
@@ -6,18 +7,18 @@ namespace Domain.Services
 {
     public class EnderecoService : IEnderecoService
     {
-        private readonly IEnderecoRepository _enderecoRepository;
+        private readonly IEnderecoRepository _repository;
 
-        public EnderecoService(IEnderecoRepository regiaoRepository)
+        public EnderecoService(IEnderecoRepository repository)
         {
-            _enderecoRepository = regiaoRepository;
+            _repository = repository;
         }
 
-        public async Task<List<Endereco>> FindAll()
+        public async Task<List<EnderecoDTO>> FindAll()
         {
             try
             {
-                return await _enderecoRepository.FindAll();
+                return await _repository.FindAll();
             }
             catch (Exception ex)
             {

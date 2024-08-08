@@ -10,9 +10,9 @@ namespace Authenticator.Controllers
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
-        private readonly IUserService _service;
+        private readonly IUsuarioService _service;
 
-        public UserController(ILogger<UserController> logger, IUserService userService)
+        public UserController(ILogger<UserController> logger, IUsuarioService userService)
         {
             _logger = logger;
             _service = userService;

@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
 
 namespace Domain.Interfaces.IServices
 {
     public interface ITipoUsuarioService
     {
-        Task<List<TipoUsuario>> FindAll();
+        Task<List<TipoUsuarioDTO>> FindAll();
     }
 }

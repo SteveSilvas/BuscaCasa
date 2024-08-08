@@ -1,10 +1,10 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
 
 namespace Domain.Interfaces.IServices
 {
     public interface IMunicipioService
     {
-        Task<List<Municipio>> FindAll();
-        Task<Municipio?> FindByIdEstado(int idEstado);
+        Task<List<MunicipioDTO>> FindAll();
+        Task<MunicipioDTO?> FindByIdEstado(int idEstado);
     }
 }

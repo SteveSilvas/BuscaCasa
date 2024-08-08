@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BuscaCasa.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class EnderecoController : ControllerBase
     {
         private readonly ILogger<EnderecoController> _logger;

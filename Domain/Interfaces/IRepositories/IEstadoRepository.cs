@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
 
 namespace Domain.Interfaces.IRepositories
 {
     public interface IEstadoRepository
     {
-        Task<List<Estado>> FindAll();
+        Task<List<EstadoDTO>> FindAll();
     }
 }

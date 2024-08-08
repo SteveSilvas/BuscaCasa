@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
+using Domain.Entities;
 using Domain.Interfaces.IRepositories;
 using Domain.Interfaces.IServices;
 
@@ -6,18 +7,18 @@ namespace Domain.Services
 {
     public class RegiaoService : IRegiaoService
     {
-        private readonly IRegiaoRepository _regiaoRepository;
+        private readonly IRegiaoRepository _repository;
 
-        public RegiaoService(IRegiaoRepository regiaoRepository)
+        public RegiaoService(IRegiaoRepository repository)
         {
-            _regiaoRepository = regiaoRepository;
+            _repository = repository;
         }
 
-        public async Task<List<Regiao>> FindAll()
+        public async Task<List<RegiaoDTO>> FindAll()
         {
             try
             {
-                return await _regiaoRepository.FindAll();
+                return await _repository.FindAll();
             }
             catch (Exception ex)
             {

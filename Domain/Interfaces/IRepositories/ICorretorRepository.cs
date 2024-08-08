@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
 
 namespace Domain.Interfaces.IRepositories
 {
     public interface ICorretorRepository
     {
-        Task<List<Corretor>> FindAll();
+        Task<List<CorretorDTO>> FindAll();
     }
 }

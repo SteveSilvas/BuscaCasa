@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
 
 namespace Domain.Interfaces.IRepositories
 {
     public interface ITipoConstrucaoImovelRepository
     {
-        Task<List<TipoConstrucaoImovel>> FindAll();
+        Task<List<TipoConstrucaoImovelDTO>> FindAll();
     }
 }

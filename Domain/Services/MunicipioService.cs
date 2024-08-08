@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
+using Domain.Entities;
 using Domain.Interfaces.IRepositories;
 using Domain.Interfaces.IServices;
 
@@ -6,18 +7,18 @@ namespace Domain.Services
 {
     public class MunicipioService : IMunicipioService
     {
-        private readonly IMunicipioRepository _municipioRepository;
+        private readonly IMunicipioRepository _repository;
 
-        public MunicipioService(IMunicipioRepository municipioRepository)
+        public MunicipioService(IMunicipioRepository repository)
         {
-            _municipioRepository = municipioRepository;
+            _repository = repository;
         }
 
-        public async Task<List<Municipio>?> FindAll()
+        public async Task<List<MunicipioDTO>?> FindAll()
         {
             try
             {
-                return await _municipioRepository.FindAll();
+                return await _repository.FindAll();
             }
             catch (Exception ex)
             {
@@ -29,7 +30,7 @@ namespace Domain.Services
         {
             try
             {
-                return await _municipioRepository.FindByIdEstado(idEstado);
+                return await _repository.FindByIdEstado(idEstado);
             }
             catch (Exception ex)
             {

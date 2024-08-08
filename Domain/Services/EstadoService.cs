@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
+using Domain.Entities;
 using Domain.Interfaces.IRepositories;
 using Domain.Interfaces.IServices;
 
@@ -6,18 +7,18 @@ namespace Domain.Services
 {
     public class EstadoService : IEstadoService
     {
-        private readonly IEstadoRepository _estadoRepository;
+        private readonly IEstadoRepository _repository;
 
-        public EstadoService(IEstadoRepository estadoRepository)
+        public EstadoService(IEstadoRepository repository)
         {
-            _estadoRepository = estadoRepository;
+            _repository = repository;
         }
 
-        public async Task<List<Estado>> FindAll()
+        public async Task<List<EstadoDTO>> FindAll()
         {
             try
             {
-                return await _estadoRepository.FindAll();
+                return await _repository.FindAll();
             }
             catch (Exception ex)
             {

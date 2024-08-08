@@ -1,4 +1,5 @@
 ﻿using Authenticator.Context;
+using Domain.DTOs;
 using Domain.Entities;
 using Domain.Interfaces.IRepositories;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +13,18 @@ namespace Infra.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task<List<Corretor>> FindAll()
+        public async Task<List<CorretorDTO>> FindAll()
         {
             try
             {
-                return await _dbContext.Corretores.ToListAsync();
+                return await _dbContext.Corretores
+                    .Select(c => new CorretorDTO
+                    {
+                        ID = c.ID,
+                        Sigla = c.Sigla,
+                        ImobiliariaID = c.ImobiliariaID,
+                        UsuarioID = c.UsuarioID
+                    }).ToListAsync();
             }
             catch (Exception ex)
             {
