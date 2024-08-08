@@ -2,7 +2,7 @@
 {
     public class Imovel
     {
-        public long Id { get; set; }
+        public long ID { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }

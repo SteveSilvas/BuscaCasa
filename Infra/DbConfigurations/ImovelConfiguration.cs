@@ -10,9 +10,9 @@ namespace Infra.DbConfigurations
         {
             builder.ToTable("Imovel");
 
-            builder.HasKey(m => m.Id);
+            builder.HasKey(m => m.ID);
 
-            builder.Property(m => m.Id)
+            builder.Property(m => m.ID)
                 .HasColumnName("id");
 
             builder.Property(m => m.Nome)

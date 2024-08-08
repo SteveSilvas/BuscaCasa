@@ -58,7 +58,7 @@ namespace Domain.Services
         {
             try
             {
-                Usuario user = await _repository.GetSignin(signinUserDTO.Email);
+                UsuarioDTO user = await _repository.GetSignin(signinUserDTO.Email);
 
                 if (user == null)
                     throw new FileNotFoundException("User not found.");

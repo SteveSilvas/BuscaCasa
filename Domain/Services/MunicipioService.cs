@@ -14,7 +14,7 @@ namespace Domain.Services
             _repository = repository;
         }
 
-        public async Task<List<MunicipioDTO>?> FindAll()
+        public async Task<List<MunicipioDTO>> FindAll()
         {
             try
             {
@@ -26,7 +26,7 @@ namespace Domain.Services
             }
         }
 
-        public async Task<Municipio?> FindByIdEstado(int idEstado)
+        public async Task<MunicipioDTO?> FindByIdEstado(int idEstado)
         {
             try
             {

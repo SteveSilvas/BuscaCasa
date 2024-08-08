@@ -14,11 +14,22 @@ namespace Infra.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task<Usuario?> GetAsync(long userId)
+        public async Task<UsuarioDTO?> GetAsync(long userId)
         {
             try
             {
                 return await _dbContext.Usuarios
+                    .Select(u => new UsuarioDTO
+                    {
+                        ID = userId,
+                        Nome = u.Nome,
+                        Email = u.Email,
+                        PasswordHash = u.PasswordHash,
+                        PasswordSalt = u.PasswordSalt,
+                        CreatedAt = DateTime.UtcNow,
+                        TipoUsuarioID = u.TipoUsuarioID,
+                        StatusId = u.StatusId,
+                    })
              .Where(u => u.ID == userId)
              .FirstOrDefaultAsync();
             }
@@ -54,12 +65,23 @@ namespace Infra.Repositories
             }
         }
 
-        public async Task<Usuario> GetSignin(string email)
+        public async Task<UsuarioDTO> GetSignin(string email)
         {
-            var userInDb = new Usuario();
+            var userInDb = new UsuarioDTO();
             try
             {
                 userInDb = await _dbContext.Usuarios
+                    .Select(u => new UsuarioDTO
+                    {
+                        ID = u.ID,
+                        Nome = u.Nome,
+                        Email = u.Email,
+                        PasswordHash = u.PasswordHash,
+                        PasswordSalt = u.PasswordSalt,
+                        CreatedAt = DateTime.UtcNow,
+                        TipoUsuarioID = u.TipoUsuarioID,
+                        StatusId = u.StatusId,
+                    })
                 .Where(u => u.Email.ToLower() == email.ToLower())
                 .FirstOrDefaultAsync();
 
