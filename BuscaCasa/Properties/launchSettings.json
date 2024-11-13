@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "http": {
+    "Local-http": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -10,7 +10,7 @@
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5088"
     },
-    "https": {
+    "Local-https": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -20,7 +20,7 @@
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7142;http://localhost:5088"
     },
-    "IIS Express": {
+    "Local = IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -28,7 +28,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Container (Dockerfile)": {
+    "Prodution - Container (Dockerfile)": {
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",

@@ -32,7 +32,7 @@ namespace BuscaCasa.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao buscar regioes");
+                _logger.LogError(ex, "Erro ao buscar regiões");
                 return BadRequest("An error occurred while fetching regiao.");
             }
         }

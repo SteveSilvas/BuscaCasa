@@ -12,6 +12,12 @@ namespace Authenticator.Configurations.Injections
     {
         public static void Execute(WebApplicationBuilder builder)
         {
+            builder.Configuration
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables();
+
             ConfigureDatabase(builder);
             ConfigureRepositories(builder.Services);
             ConfigureServices(builder.Services);
@@ -19,9 +25,18 @@ namespace Authenticator.Configurations.Injections
 
         private static void ConfigureDatabase(WebApplicationBuilder builder)
         {
+            string? connectionString = builder.Environment.EnvironmentName == "Development"
+                ? builder.Configuration.GetConnectionString("DefaultConnection")
+                : builder.Configuration.GetConnectionString("ProductionConnection");
+
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new InvalidOperationException("String de connexão não encontrada.");
+            }
+
             builder.Services.AddDbContext<PostgresDbContext>(options =>
             {
-                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+                options.UseNpgsql(connectionString,
                     b => b.MigrationsAssembly("Infra"));
             });
         }
